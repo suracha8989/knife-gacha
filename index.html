@@ -119,6 +119,47 @@ button:focus-visible{outline:3px solid var(--l);outline-offset:2px}
 .potbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 0}
 .potbar button{padding:8px 16px}
 button:disabled{opacity:.4;cursor:default}
+.podium{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:8px;align-items:end;margin-bottom:12px}
+.pd{border-radius:14px;padding:10px 6px;text-align:center;border:2px solid var(--pc);background:color-mix(in srgb,var(--pc) 14%,transparent);box-shadow:0 0 14px color-mix(in srgb,var(--pc) 45%,transparent);min-width:0}
+.pd.p1{padding:16px 6px 14px;box-shadow:0 0 24px var(--pc)}
+.pd .md{font-size:1.8rem;line-height:1.2}
+.pd.p1 .md{font-size:2.3rem}
+.pd .pn{font-weight:700;font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pd .ps{font-weight:800;font-size:1.05rem;color:var(--pc)}
+.pd .pk{font-size:.72rem;color:var(--muted)}
+.pd.me{outline:3px solid var(--l);outline-offset:2px}
+.lbr{position:relative;display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;border:1px solid var(--line);margin-bottom:6px;overflow:hidden}
+.lbr .rk{flex:none;width:26px;height:26px;border-radius:50%;background:var(--line);display:grid;place-items:center;font-weight:700;font-size:.8rem}
+.lbr .nm{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.lbr .st{font-weight:800}
+.lbr .kl{font-size:.72rem;color:var(--muted)}
+.lbr .bar{position:absolute;left:0;bottom:0;height:3px;background:var(--l)}
+.lbr.me{border-color:var(--l);background:color-mix(in srgb,var(--l) 12%,transparent)}
+:root{--e:#b98600}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--e:#ffd700}}
+:root[data-theme="dark"]{--e:#ffd700}
+.e{--c:var(--e)}
+.card.e{box-shadow:0 0 30px var(--e);border-color:var(--e);background:linear-gradient(#3a2a00,#120c00);color:#fff4c2}
+.kn.e svg{filter:drop-shadow(0 0 12px var(--e))}
+.fx[data-t=e]{background:radial-gradient(circle at 50% 50%,#6b4a00 0,#0a0600 70%)}
+.fx[data-t=e] .rays{animation:spin 3s linear infinite}
+.afl.e{background:#ffd700}
+.rates b{font-size:.78rem}
+.rates small{font-size:.66rem}
+.bname{text-align:center;font-weight:800;color:#ffd54a;text-shadow:0 0 8px #000,0 0 3px #000;font-size:1.1rem}
+.bface{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid #ffd54a;display:block;box-shadow:0 0 18px #ffd54a}
+.mhp{height:6px;margin-bottom:2px;flex:none}
+.mon.hurt{animation:hurt .15s,wob 1.6s ease-in-out .15s infinite}
+.tb{width:100%;border-collapse:collapse;font-size:.8rem}
+.tb th,.tb td{padding:6px 5px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.tb th{color:var(--muted);font-weight:600;white-space:nowrap}
+.tb tr.cur{background:color-mix(in srgb,var(--l) 18%,transparent)}
+.tb tr.miss{opacity:.5}
+.tb tr[data-pi]{cursor:pointer}
+.nmo{position:fixed;inset:0;z-index:300;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px}
+.nmo[hidden]{display:none}
+.nmo .box{width:min(100%,380px);text-align:center}
+.nmo input{width:100%;font:inherit;padding:12px;border-radius:10px;border:2px solid var(--line);background:transparent;color:var(--ink);margin:12px 0 8px;text-align:center}
 .petv{position:absolute;left:12%;bottom:6px;font-size:2rem;pointer-events:none;animation:wob 1.6s ease-in-out infinite}
 .col .card[data-pi]:not(.no){cursor:pointer}
 .rb{animation:hue 2.5s linear infinite}
@@ -132,7 +173,7 @@ button:disabled{opacity:.4;cursor:default}
 .fx[data-t=x]{background:radial-gradient(circle at 50% 50%,#2a0d4a 0,#000 70%)}
 .fx[data-t=x] .rays{animation:spin 3s linear infinite}
 .afl.x{background:#2a0050}
-.rates{grid-template-columns:repeat(6,1fr)}
+.rates{grid-template-columns:repeat(7,1fr)}
 .rates b{font-size:.85rem}
 .rates small{font-size:.7rem}
 .col .card[data-k]:not(.no){cursor:pointer}
@@ -155,6 +196,7 @@ button:disabled{opacity:.4;cursor:default}
 </style>
 </head>
 <body>
+<div class="nmo" id="nm"><div class="box"><h1>ตั้งชื่อผู้เล่น</h1><p class="sub">ต้องใส่ชื่อก่อนถึงจะเริ่มเล่นได้ ชื่อนี้จะขึ้นบนอันดับผู้เล่น (ไม่เกิน 16 ตัวอักษร)</p><input id="nmi" type="text" maxlength="16" placeholder="ชื่อของคุณ" autocomplete="off" aria-label="ชื่อผู้เล่น"><p class="sub" id="nmm" style="min-height:1.4em;margin:0 0 8px;color:#d9534f"></p><button id="nmb" style="width:100%">เริ่มเล่น</button></div></div>
 <main>
 <h1>กาชามีด</h1>
 <p class="sub">ฟันมอนสเตอร์หา GP แล้วเอาไปสุ่มมีด</p>
@@ -165,12 +207,13 @@ button:disabled{opacity:.4;cursor:default}
 <div class="potbar"><span id="pt"></span><button id="pd">ดื่มยาโชค</button><b id="lk" style="color:var(--l)"></b></div>
 <div class="potbar"><span id="sk" style="flex:1;font-size:.9rem"></span><button id="up"></button></div>
 <div class="panel rates">
-  <div class="n"><b>68.84%</b><small>ปกติ</small></div>
+  <div class="n"><b>68.835%</b><small>ปกติ</small></div>
   <div class="r"><b>29%</b><small>แรร์</small></div>
   <div class="l"><b>2%</b><small>ตำนาน</small></div>
   <div class="d"><b>0.1%</b><small>เทพ</small></div>
   <div class="u"><b>0.05%</b><small>อัลตรา</small></div>
   <div class="x"><b>0.01%</b><small>เงามืด</small></div>
+  <div class="e"><b>0.005%</b><small>อีซองพี</small></div>
 </div>
 <div class="btns"><button id="p1">สุ่ม 1 ครั้ง (10 GP)</button><button id="p10">สุ่ม 10 ครั้ง (100 GP)</button></div>
 <p class="banner" id="bn"></p>
@@ -189,7 +232,7 @@ button:disabled{opacity:.4;cursor:default}
 <div class="col" id="skcol"></div>
 <h2>สุ่มทักษะ</h2>
 <p class="sub" style="margin:0 0 8px">ทักษะติดตั้งได้ 1 อย่าง ใช้ร่วมกับมีดที่ถือ อัตราสุ่มเท่ากับมีด และได้ผลจากยาโชคเหมือนกัน</p>
-<div class="btns" style="margin:0 0 8px"><button id="k1">สุ่มทักษะ 1 ครั้ง (10 GP)</button><button id="k10">สุ่มทักษะ 10 ครั้ง (100 GP)</button></div>
+<div class="btns" style="margin:0 0 8px"><button id="k1">สุ่มทักษะ 1 ครั้ง (300 GP)</button><button id="k10">สุ่มทักษะ 10 ครั้ง (3,000 GP)</button></div>
 <p class="sub" id="km" style="min-height:1.5em;margin:0"></p>
 <h2>คลังทักษะ <span id="kc" style="color:var(--muted);font-weight:400"></span></h2>
 <div class="col" id="kcol"></div>
@@ -203,60 +246,68 @@ button:disabled{opacity:.4;cursor:default}
 <div class="panel" id="forge"></div>
 <h2>ร้านค้า</h2>
 <div class="panel"><div class="srow"><span id="s1t"></span><button id="s1"></button></div><div class="srow"><span id="s3t"></span><button id="s3"></button></div><div class="srow"><span id="s4t"></span><button id="s4"></button></div></div>
+<h2>อันดับผู้เล่น</h2>
+<p class="sub" style="margin:0 0 8px">จัดอันดับตามด่านสูงสุด ถ้าเท่ากันดูจำนวนมอนที่ฆ่ารวม ตั้งชื่อได้ไม่เกิน 16 ตัวอักษร ระบบส่งคะแนนให้อัตโนมัติเมื่อชนะบอส</p>
+<div class="panel cdrow"><input id="lbn" type="text" maxlength="16" placeholder="ชื่อของคุณ" autocomplete="off" aria-label="ชื่อบนอันดับ"><button id="lbs" style="padding:10px 18px">ส่งคะแนน</button></div>
+<p class="sub" id="lbm" style="margin:6px 0;min-height:1.5em"></p>
+<div class="panel" id="lbt">กำลังโหลดอันดับ...</div>
+<button class="alt" id="lbr" style="padding:8px 14px;margin-top:8px">รีเฟรชอันดับ</button>
 <h2>ใส่โค้ด</h2>
 <div class="panel cdrow"><input id="cd" type="text" placeholder="พิมพ์โค้ดที่นี่" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="ช่องใส่โค้ด"><button id="cb" style="padding:10px 18px">ใช้โค้ด</button></div>
 <p class="sub" id="cm" style="margin:6px 0 0;min-height:1.5em"></p>
 <div class="foot"><span>เกมสุ่มสมมติ ไม่มีเงินจริงเกี่ยวข้อง</span><button class="alt" id="rs" style="padding:8px 14px">ล้างข้อมูล</button></div>
+<p class="sub" id="rsm" style="margin:6px 0 0"></p>
 </main>
 <div class="fx" id="fx" hidden><div class="rays" id="rays"></div><div class="orb" id="orb"></div><div class="ring" id="ring"></div><div class="slash" id="slash"></div><div class="stage" id="stage"></div><div class="flash" id="flash"></div><button class="fxb" id="fxb">ข้าม</button></div>
 <script>
 (function(){
-var TN={n:'ปกติ',r:'แรร์',l:'ตำนาน',d:'เทพ',u:'อัลตราแรร์',x:'เงามืด'};
-var COL={n:'#9aa3ad',r:'#3b9eff',l:'#ffb02e',d:'#ff5cf0',u:'#35f2ff',x:'#8a3dff'};
-var HD={n:'#6b4b2f',r:'#24376b',l:'#5a1f1f',d:'#ffffff',u:'#e8fdff',x:'#14081f'};
+var TN={n:'ปกติ',r:'แรร์',l:'ตำนาน',d:'เทพ',u:'อัลตราแรร์',x:'เงามืด',e:'อีซองพี'};
+var COL={n:'#9aa3ad',r:'#3b9eff',l:'#ffb02e',d:'#ff5cf0',u:'#35f2ff',x:'#8a3dff',e:'#ffd700'};
+var HD={n:'#6b4b2f',r:'#24376b',l:'#5a1f1f',d:'#ffffff',u:'#e8fdff',x:'#14081f',e:'#7a5200'};
 var I=[
 {t:'n',s:0,m:'มีดพก'},{t:'n',s:3,m:'มีดหั่นผัก'},{t:'n',s:0,m:'มีดปอกผลไม้'},{t:'n',s:2,m:'มีดสนิมเขรอะ'},{t:'n',s:1,m:'มีดเกี่ยวหญ้า'},{t:'n',s:3,m:'มีดครัวเก่า'},
 {t:'r',s:2,m:'มีดสั้นเงิน'},{t:'r',s:4,m:'มีดคารัมบิต'},{t:'r',s:1,m:'มีดนักล่า'},{t:'r',s:0,m:'มีดเดินป่า'},{t:'r',s:3,m:'มีดเหล็กกล้า'},
 {t:'l',s:4,m:'มีดมังกรเพลิง'},{t:'l',s:2,m:'มีดจันทร์แรม'},{t:'l',s:1,m:'มีดพิฆาตเงา'},
 {t:'d',s:2,m:'มีดเทพสุริยะ'},
 {t:'u',s:4,m:'มีดผ่าจักรวาล'},
-{t:'x',s:5,m:'ดาบแห่งเงา'}
+{t:'x',s:5,m:'ดาบแห่งเงา'},
+{t:'e',s:6,m:'ดาบอีซองพี'}
 ];
-var SH=['M50 6 Q60 22 58 58 L42 58 L42 24 Z','M52 6 Q72 30 58 58 L42 58 Q50 30 52 6 Z','M50 4 L60 54 L40 54 Z','M42 14 L60 10 L60 58 L42 58 Z','M50 8 Q74 20 62 40 Q56 52 58 58 L42 58 L42 30 Q44 16 50 8 Z','M50 0 L58 14 L54 22 L60 34 L55 42 L58 56 L42 56 L45 42 L40 34 L46 22 L42 14 Z'];
+var SH=['M50 6 Q60 22 58 58 L42 58 L42 24 Z','M52 6 Q72 30 58 58 L42 58 Q50 30 52 6 Z','M50 4 L60 54 L40 54 Z','M42 14 L60 10 L60 58 L42 58 Z','M50 8 Q74 20 62 40 Q56 52 58 58 L42 58 L42 30 Q44 16 50 8 Z','M50 0 L58 14 L54 22 L60 34 L55 42 L58 56 L42 56 L45 42 L40 34 L46 22 L42 14 Z','M50 2 L63 14 L61 56 L39 56 L37 14 Z'];
 var uid=0;
 function svg(it,sk){
   var c=sk?sk.c:COL[it.t],id='g'+(uid++),g=sk?sk.g:null,hd=sk?sk.h:HD[it.t];
-  return '<svg viewBox="0 0 100 100" aria-hidden="true"'+(sk&&sk.rb?' class="rb"':'')+'><defs><linearGradient id="'+id+'" x1="0" x2="1"><stop offset="0" stop-color="'+(g?g[0]:it.t==='x'?'#7a4bd6':'#fff')+'"/><stop offset=".5" stop-color="'+(g?g[1]:it.t==='x'?'#1a0a2e':c)+'"/><stop offset="1" stop-color="'+(g?g[2]:it.t==='x'?'#07020d':c)+'" stop-opacity="'+(it.t==='x'?'1':'.7')+'"/></linearGradient></defs><g transform="rotate(35 50 50)"><path d="'+SH[it.s]+'" fill="url(#'+id+')" stroke="'+c+'" stroke-width="1.5"/><rect x="34" y="56" width="32" height="5" rx="2" fill="'+c+'"/><rect x="44" y="61" width="12" height="30" rx="4" fill="'+hd+'" stroke="'+c+'"/>'+(it.t==='l'||it.t==='d'||it.t==='u'||it.t==='x'?'<circle cx="50" cy="66" r="3" fill="'+c+'"/>':'')+'</g></svg>';
+  return '<svg viewBox="0 0 100 100" aria-hidden="true"'+(sk&&sk.rb?' class="rb"':'')+'><defs><linearGradient id="'+id+'" x1="0" x2="1"><stop offset="0" stop-color="'+(g?g[0]:it.t==='e'?'#fff6b0':it.t==='x'?'#7a4bd6':'#fff')+'"/><stop offset=".5" stop-color="'+(g?g[1]:it.t==='e'?'#ffcf2e':it.t==='x'?'#1a0a2e':c)+'"/><stop offset="1" stop-color="'+(g?g[2]:it.t==='e'?'#a86b00':it.t==='x'?'#07020d':c)+'" stop-opacity="'+(it.t==='x'?'1':'.7')+'"/></linearGradient></defs><g transform="rotate(35 50 50)"><path d="'+SH[it.s]+'" fill="url(#'+id+')" stroke="'+c+'" stroke-width="1.5"/><rect x="34" y="56" width="32" height="5" rx="2" fill="'+c+'"/><rect x="44" y="61" width="12" height="30" rx="4" fill="'+hd+'" stroke="'+c+'"/>'+(it.t==='l'||it.t==='d'||it.t==='u'||it.t==='x'||it.t==='e'?'<circle cx="50" cy="66" r="3" fill="'+c+'"/>':'')+'</g></svg>';
 }
 var forceU=false;
 function roll(){
   if(forceU){forceU=false;return I.findIndex(function(k){return k.t==='u'})}
-  var m=S.luck>0?2:1,z=.01*m,u=.05*m,d=.1*m,l=2*m,r=29,x=Math.random()*100,t;
+  var m=S.luck>0?2:1,w=.005*m,z=.01*m,u=.05*m,d=.1*m,l=2*m,r=29,x=Math.random()*100,t;
   if(S.luck>0)S.luck--;
-  t=x<z?'x':x<z+u?'u':x<z+u+d?'d':x<z+u+d+l?'l':x<z+u+d+l+r?'r':'n';
+  t=x<w?'e':x<w+z?'x':x<w+z+u?'u':x<w+z+u+d?'d':x<w+z+u+d+l?'l':x<w+z+u+d+l+r?'r':'n';
   var pool=I.filter(function(x){return x.t===t});
   return I.indexOf(pool[Math.floor(Math.random()*pool.length)]);
 }
 var S={pulls:0,cnt:{n:0,r:0,l:0,d:0},own:{},since:0};
 try{var sv=JSON.parse(localStorage.getItem('knife-gacha')||'null');if(sv&&sv.cnt)S=sv}catch(e){}
 if(typeof S.gp!=='number'){S.gp=100;S.eq=0;if(!S.own[0])S.own[0]=1}
-S.pot=S.pot||0;S.luck=S.luck||0;S.cnt.u=S.cnt.u||0;S.cnt.x=S.cnt.x||0;S.kills=S.kills||0;S.stage=Math.min(50,S.stage||1);S.prog=S.prog||0;S.lv=S.lv||{};S.shop=S.shop||{mons:3,auto:0,dur:0};S.sk=S.sk||{own:{},eq:null};S.ks=S.ks||{own:{},sel:{}};S.pt=S.pt||{own:{},eq:null};
+S.pot=S.pot||0;S.luck=S.luck||0;S.cnt.u=S.cnt.u||0;S.cnt.x=S.cnt.x||0;S.cnt.e=S.cnt.e||0;S.kills=S.kills||0;S.stage=Math.min(100,S.stage||1);S.prog=S.prog||0;S.lv=S.lv||{};S.shop=S.shop||{mons:3,auto:0,dur:0};S.sk=S.sk||{own:{},eq:null};S.ks=S.ks||{own:{},sel:{}};S.pt=S.pt||{own:{},eq:null};
 if(S.shop.auto>0){S.gp+=300*S.shop.auto*(S.shop.auto+1)/2;S.shop.auto=0}
 function save(){try{localStorage.setItem('knife-gacha',JSON.stringify(S))}catch(e){}}
 var $=function(i){return document.getElementById(i)};
 function pull(n){
   if(S.gp<n*10){$('bn').textContent='GP ไม่พอ ไปฟันมอนสเตอร์เพิ่มก่อน';$('bn').style.color='var(--l)';return}
   S.gp-=n*10;
-  var out=[],best='n',ord={n:0,r:1,l:2,d:3,u:4,x:5};
+  var out=[],best='n',ord={n:0,r:1,l:2,d:3,u:4,x:5,e:6};
   for(var k=0;k<n;k++){
     var ix=roll(),it=I[ix];out.push(ix);
     S.pulls++;S.cnt[it.t]++;S.own[ix]=(S.own[ix]||0)+1;
-    if(it.t==='d'||it.t==='u'||it.t==='x')S.since=0;else S.since++;
+    if(it.t==='d'||it.t==='u'||it.t==='x'||it.t==='e')S.since=0;else S.since++;
     if(ord[it.t]>ord[best])best=it.t;
   }
   save();
   var bn=$('bn');
-  bn.textContent=best==='x'?'เงามืด!!! ของที่แทบไม่มีใครเคยเห็น':best==='u'?'อัลตราแรร์!! ปาฏิหาริย์!':best==='d'?'ระดับเทพ! โชคดีสุด ๆ':best==='l'?'ได้ระดับตำนาน!':best==='r'?'ได้ของแรร์':'ระดับปกติล้วน ลองอีกครั้ง';
+  bn.textContent=best==='e'?'อีซองพี!!!! ระดับสูงสุดของจักรวาล':best==='x'?'เงามืด!!! ของที่แทบไม่มีใครเคยเห็น':best==='u'?'อัลตราแรร์!! ปาฏิหาริย์!':best==='d'?'ระดับเทพ! โชคดีสุด ๆ':best==='l'?'ได้ระดับตำนาน!':best==='r'?'ได้ของแรร์':'ระดับปกติล้วน ลองอีกครั้ง';
   bn.style.color='var(--'+best+')';
   var h='';
   out.forEach(function(ix,k){var it=I[ix];h+='<div class="card '+it.t+'" style="--dl:'+(k*0.07)+'s">'+svg(it,skinOf(ix))+'<span><b style="color:var(--'+it.t+')">'+TN[it.t]+'</b><br>'+it.m+'</span></div>'});
@@ -273,7 +324,7 @@ function play(h,cls,best,n){
   var fx=$('fx'),orb=$('orb'),fxb=$('fxb'),st=$('stage');
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   clr();
-  var D={n:1.1,r:1.6,l:2.3,d:3.2,u:4.2,x:5.4}[best],c=COL[best],state='run';
+  var D={n:1.1,r:1.6,l:2.3,d:3.2,u:4.2,x:5.4,e:6.4}[best],c=COL[best],state='run';
   st.innerHTML='';fx.hidden=false;fx.dataset.t=best;fx.classList.remove('shake');
   fx.style.setProperty('--c','#9aa3ad');
   $('rays').classList.remove('on');
@@ -282,13 +333,13 @@ function play(h,cls,best,n){
   later(function(){
     fx.style.setProperty('--c',c);
     if(best!=='n')$('rays').classList.add('on');
-    if(best==='l'||best==='d'||best==='u'||best==='x')fx.classList.add('shake');
+    if(best==='l'||best==='d'||best==='u'||best==='x'||best==='e')fx.classList.add('shake');
   },D*1000-400);
   function reveal(){
     orb.style.display='none';fx.classList.remove('shake');fx.style.setProperty('--c',c);
     if(best!=='n')$('rays').classList.add('on');
     rst($('flash'),'go');rst($('ring'),'go');
-    if(best==='d'||best==='u'||best==='x')later(function(){rst($('flash'),'go')},350);if(best==='u'||best==='x')later(function(){rst($('flash'),'go')},750);
+    if(best==='d'||best==='u'||best==='x'||best==='e')later(function(){rst($('flash'),'go')},350);if(best==='u'||best==='x'||best==='e')later(function(){rst($('flash'),'go')},750);
     if(n===1)rst($('slash'),'go');
     st.innerHTML='<div class="tier">'+(n===1?'':'สูงสุด ')+TN[best]+'</div><div class="'+cls+'">'+h+'</div>';
   }
@@ -305,7 +356,7 @@ function render(){
   gpUI();eqUI();skUI();snUI();petUI();forgeUI();
   $('st').innerHTML='<div><b>'+S.pulls+'</b><small>สุ่มทั้งหมด</small></div><div><b>'+S.since+'</b><small>ครั้งตั้งแต่ได้เทพล่าสุด</small></div><div><b>'+S.cnt.d+'</b><small>ระดับเทพ</small></div><div><b style="color:var(--n)">'+S.cnt.n+' ('+pct('n')+')</b><small>ปกติ</small></div><div><b style="color:var(--r)">'+S.cnt.r+' ('+pct('r')+')</b><small>แรร์</small></div><div><b style="color:var(--l)">'+S.cnt.l+' ('+pct('l')+')</b><small>ตำนาน</small></div><div><b style="color:var(--u)">'+S.cnt.u+'</b><small>อัลตราแรร์</small></div><div><b>'+S.pot+'</b><small>ยาโชคที่มี</small></div><div><b>'+S.luck+'</b><small>ครั้งที่โชค x2</small></div>';
   var h='',own=0;
-  I.slice().map(function(it,ix){return{it:it,ix:ix}}).sort(function(a,b){return 'xudlrn'.indexOf(a.it.t)-'xudlrn'.indexOf(b.it.t)}).forEach(function(o){
+  I.slice().map(function(it,ix){return{it:it,ix:ix}}).sort(function(a,b){return 'exudlrn'.indexOf(a.it.t)-'exudlrn'.indexOf(b.it.t)}).forEach(function(o){
     var c=S.own[o.ix]||0;if(c)own++;
     h+='<div class="card '+o.it.t+(c?'':' no')+(o.ix===S.eq?' eq':'')+'" data-ix="'+o.ix+'">'+(c?'<em>x'+c+'</em>':'')+svg(o.it,skinOf(o.ix))+'<span>'+(c?o.it.m+((S.lv[o.ix]||0)?' +'+S.lv[o.ix]:'')+(o.ix===S.eq?' (ถือ)':''):'???')+'</span></div>';
   });
@@ -313,12 +364,22 @@ function render(){
 }
 $('p1').onclick=function(){pull(1)};
 $('p10').onclick=function(){pull(10)};
+function missing(){
+  var a=I.filter(function(k,ix){return !(S.own[ix]>0)}).length,
+      b=SKL.filter(function(k,ix){return !(S.sk.own[ix]>0)}).length,
+      c=Object.keys(SKN).filter(function(id){return !snOwn(id)}).length,
+      d=PET.filter(function(k,ix){return !(S.pt.own[ix]>0)}).length;
+  if(!(a||b||c||d))return '';
+  return 'ต้องสะสมครบทุกอย่างก่อนถึงจะล้างข้อมูลได้ ยังขาด: มีด '+a+' · ทักษะ '+b+' · สกิน '+c+' · สัตว์เลี้ยง '+d;
+}
 var rsT;
 $('rs').onclick=function(){
-  var b=$('rs');
+  var b=$('rs'),ms=missing();
+  $('rsm').textContent=ms;
+  if(ms)return;
   if(b.textContent!=='กดอีกครั้งเพื่อยืนยัน'){b.textContent='กดอีกครั้งเพื่อยืนยัน';clearTimeout(rsT);rsT=setTimeout(function(){b.textContent='ล้างข้อมูล'},3000);return}
   clearTimeout(rsT);b.textContent='ล้างข้อมูล';
-  S={pulls:0,cnt:{n:0,r:0,l:0,d:0,u:0,x:0},own:{0:1},since:0,gp:100,eq:0,pot:0,luck:0,kills:0,stage:1,prog:0,lv:{},shop:{mons:3,auto:0,dur:0},sk:{own:{},eq:null},ks:{own:{},sel:{}},pt:{own:{},eq:null}};save();$('res').innerHTML='';$('bn').textContent='';render();rsArena();autoSet();
+  S={pulls:0,cnt:{n:0,r:0,l:0,d:0,u:0,x:0,e:0},own:{0:1},since:0,gp:100,eq:0,pot:0,luck:0,kills:0,stage:1,prog:0,lv:{},shop:{mons:3,auto:0,dur:0},sk:{own:{},eq:null},ks:{own:{},sel:{}},pt:{own:{},eq:null}};save();$('res').innerHTML='';$('bn').textContent='';render();rsArena();autoSet();
 };
 var ar=$('ar'),kn=$('kn');
 var boss=null,autoT=0;
@@ -334,9 +395,10 @@ sa:{n:'ซากุระ',t:'l',c:'#ff9ccf',g:['#fff0f8','#ff9ccf','#c2407f'],h
 gx:{n:'กาแล็กซี',t:'d',c:'#7d8bff',g:['#9af2ff','#3a2a9a','#0a0630'],h:'#120a40'},
 rb:{n:'รุ้ง',t:'u',c:'#ff5cf0',g:['#ffffff','#ff5cf0','#35f2ff'],h:'#222222',rb:1},
 vd:{n:'ความว่างเปล่า',t:'x',c:'#b57dff',g:['#3a1b6b','#0b0412','#000000'],h:'#05020a'},
+ew:{n:'ทองอีซองพี',t:'e',c:'#ffd700',g:['#fffbd0','#ffd700','#b87a00'],h:'#5a3b00'},
 cr:{n:'ผู้พิชิต 50 ด่าน',t:'u',clr:1,c:'#ffd54a',g:['#ffffff','#ffd54a','#ff8a00'],h:'#3b1d00',rb:1}
 };
-var SREF={n:10,r:30,l:100,d:300,u:1000,x:3000};
+var SREF={n:10,r:30,l:100,d:300,u:1000,x:3000,e:10000};
 function snOwn(id){return id==='df'||!!S.ks.own[id]||!!(SKN[id].clr&&S.cleared)}
 function skinOf(ix){var id=S.ks&&S.ks.sel[ix];return id&&id!=='df'&&snOwn(id)?SKN[id]:null}
 function snUI(){
@@ -352,7 +414,7 @@ function snPull(n){
   if(S.gp<n*1000){$('snm').textContent='GP ไม่พอ ไปฟันมอนเพิ่มก่อน';return}
   S.gp-=n*1000;
   var ids=Object.keys(SKN).filter(function(id){return id!=='df'&&!SKN[id].clr});
-  var out=[],best='n',ord={n:0,r:1,l:2,d:3,u:4,x:5},ref=0,h='',it=I[S.eq||0];
+  var out=[],best='n',ord={n:0,r:1,l:2,d:3,u:4,x:5,e:6},ref=0,h='',it=I[S.eq||0];
   for(var q=0;q<n;q++){
     var t=tierRoll(),pool=ids.filter(function(id){return SKN[id].t===t}),id=pool[(Math.random()*pool.length)|0],dup=!!S.ks.own[id];
     if(dup)ref+=SREF[t];else S.ks.own[id]=1;
@@ -385,9 +447,12 @@ var PET=[
 {t:'d',e:'🐉',m:'มังกรน้อย',auto:3,ag:60,ad:40,gp:30},
 {t:'d',e:'🦄',m:'ยูนิคอร์น',gp:100,pot:.05,bd:50},
 {t:'u',e:'🦁',m:'ราชสีห์',auto:2,ag:150,ad:100,bd:100},
-{t:'x',e:'👻',m:'เงาผู้พิทักษ์',auto:1.5,ag:400,ad:300,gp:150,bd:200,pot:.08}
+{t:'x',e:'👻',m:'เงาผู้พิทักษ์',gp:150,bd:200,pot:.08},
+{t:'e',e:'🐲',m:'มังกรทองอีซองพี',gp:300,bd:400,pot:.12}
 ];
+var PTA={n:[10,3,1],r:[8,8,3],l:[6,20,10],d:[4,60,40],u:[3,150,100],x:[2,400,300],e:[1,1000,800]};
 PET.forEach(function(p){
+  var q=PTA[p.t];p.auto=q[0];p.ag=q[1];p.ad=q[2];
   var a=[];
   if(p.auto)a.push('ฟันเองทุก '+p.auto+' วิ ('+(p.ag?'มอน '+p.ag+' GP · ':'')+'บอส '+p.ad+')');
   if(p.gp)a.push('GP +'+p.gp+'%');
@@ -397,10 +462,10 @@ PET.forEach(function(p){
 });
 function pet(){return (S.pt&&S.pt.eq!=null&&PET[S.pt.eq])||{}}
 function pb(k){return pet()[k]||0}
-var TIERS=['n','r','l','d','u','x'],fgMsg='',petAcc=0;
+var TIERS=['n','r','l','d','u','x','e'],fgMsg='',petAcc=0;
 function petUI(){
   var h='',own=0;
-  PET.map(function(p,ix){return{p:p,ix:ix}}).sort(function(a,b){return 'xudlrn'.indexOf(a.p.t)-'xudlrn'.indexOf(b.p.t)}).forEach(function(o){
+  PET.map(function(p,ix){return{p:p,ix:ix}}).sort(function(a,b){return 'exudlrn'.indexOf(a.p.t)-'exudlrn'.indexOf(b.p.t)}).forEach(function(o){
     var c=S.pt.own[o.ix]||0;if(c)own++;
     h+='<div class="card '+o.p.t+(c?'':' no')+(o.ix===S.pt.eq?' eq':'')+'" data-pi="'+o.ix+'">'+(c?'<em>x'+c+'</em>':'')+'<div style="font-size:2.2rem;line-height:1.3">'+o.p.e+'</div><span>'+(c?'<b>'+o.p.m+'</b><br>'+o.p.d:'???')+'</span></div>';
   });
@@ -418,7 +483,7 @@ function forgeUI(){
   var h='';
   [['k','มีด'],['p','สัตว์เลี้ยง']].forEach(function(kk){
     h+='<div style="font-weight:700;margin:6px 0 2px">'+kk[1]+'</div>';
-    for(var i=0;i<5;i++){
+    for(var i=0;i<6;i++){
       var t=TIERS[i],nt=TIERS[i+1],sp=spare(kk[0],t);
       h+='<div class="srow"><span><b style="color:var(--'+t+')">'+TN[t]+'</b> → <b style="color:var(--'+nt+')">'+TN[nt]+'</b> · ซ้ำ '+sp+'/100</span><button data-f="'+kk[0]+t+'"'+(sp>=100?'':' disabled')+'>หลอม</button></div>';
     }
@@ -443,7 +508,7 @@ $('forge').addEventListener('click',function(e){var b=e.target.closest('button[d
 function pPull(n){
   if(S.gp<n*500){$('pm').textContent='GP ไม่พอ ไปฟันมอนเพิ่มก่อน';return}
   S.gp-=n*500;$('pm').textContent='';
-  var best='n',ord={n:0,r:1,l:2,d:3,u:4,x:5},h='';
+  var best='n',ord={n:0,r:1,l:2,d:3,u:4,x:5,e:6},h='';
   for(var q=0;q<n;q++){
     var t=tierRoll(),pool=[];PET.forEach(function(p,ix){if(p.t===t)pool.push(ix)});
     var ix=pool[(Math.random()*pool.length)|0],p=PET[ix];
@@ -457,7 +522,10 @@ $('pt1').onclick=function(){pPull(1)};
 $('pt10').onclick=function(){pPull(10)};
 $('pcol').addEventListener('click',function(e){var c=e.target.closest('.card');if(!c||c.dataset.pi===undefined||c.classList.contains('no'))return;S.pt.eq=+c.dataset.pi;petAcc=0;save();render()});
 function petKill(i,g){
-  var el=$('m'+i),p=pos(el);el.dataset.alive='0';el.classList.add('dead');
+  var el=$('m'+i),p=pos(el);mh[i]-=(pet().ad||1);
+  if(mh[i]>0){mhUI(i);rst(el,'hurt');burst(p.x,p.y,3,'#ffffff',30);return}
+  g=Math.round(g*(1+(S.stage-1)*.05));
+  el.dataset.alive='0';el.classList.add('dead');
   S.gp+=g;S.kills++;S.prog++;
   if(g)add('gain',p.x-14,p.y-24,{}).textContent='+'+g+' GP';
   burst(p.x,p.y,6,'#ffffff',45);
@@ -493,23 +561,24 @@ var SKL=[
 {t:'d',m:'ทำลายบอส',d:'ดาเมจบอส +150%',bd:150},
 {t:'u',m:'เหนือกาลเวลา',d:'ตายทั้งจอ GP +100% ยาดรอป 10%',all:1,gp:100,pot:.1},
 {t:'u',m:'ผู้พิพากษา',d:'ตายทั้งจอ ดาเมจบอส +300%',all:1,bd:300},
-{t:'x',m:'เงามืดกลืนกิน',d:'ตายทั้งจอ GP +200% ดาเมจบอส +500% ยาดรอป 15%',all:1,gp:200,bd:500,pot:.15}
+{t:'x',m:'เงามืดกลืนกิน',d:'ตายทั้งจอ GP +200% ดาเมจบอส +500% ยาดรอป 15%',all:1,gp:200,bd:500,pot:.15},
+{t:'e',m:'พรอีซองพี',d:'ตายทั้งจอ GP +400% ดาเมจบอส +1000% ยาดรอป 20%',all:1,gp:400,bd:1000,pot:.2}
 ];
 function skl(){return (S.sk&&S.sk.eq!=null&&SKL[S.sk.eq])||{}}
-function tierRoll(){var m=S.luck>0?2:1,z=.01*m,u=.05*m,d=.1*m,l=2*m,r=29,x=Math.random()*100;if(S.luck>0)S.luck--;return x<z?'x':x<z+u?'u':x<z+u+d?'d':x<z+u+d+l?'l':x<z+u+d+l+r?'r':'n'}
+function tierRoll(){var m=S.luck>0?2:1,w=.005*m,z=.01*m,u=.05*m,d=.1*m,l=2*m,r=29,x=Math.random()*100;if(S.luck>0)S.luck--;return x<w?'e':x<w+z?'x':x<w+z+u?'u':x<w+z+u+d?'d':x<w+z+u+d+l?'l':x<w+z+u+d+l+r?'r':'n'}
 function sico(t){var c=COL[t];return '<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" fill="none" stroke="'+c+'" stroke-width="6"/><path d="M50 20 L58 42 L82 44 L63 59 L70 80 L50 67 L30 80 L37 59 L18 44 L42 42 Z" fill="'+c+'"/></svg>'}
 function skUI(){
   var h='',own=0;
-  SKL.map(function(k,ix){return{k:k,ix:ix}}).sort(function(a,b){return 'xudlrn'.indexOf(a.k.t)-'xudlrn'.indexOf(b.k.t)}).forEach(function(o){
+  SKL.map(function(k,ix){return{k:k,ix:ix}}).sort(function(a,b){return 'exudlrn'.indexOf(a.k.t)-'exudlrn'.indexOf(b.k.t)}).forEach(function(o){
     var c=S.sk.own[o.ix]||0;if(c)own++;
     h+='<div class="card '+o.k.t+(c?'':' no')+(o.ix===S.sk.eq?' eq':'')+'" data-k="'+o.ix+'">'+(c?'<em>x'+c+'</em>':'')+sico(o.k.t)+'<span>'+(c?'<b>'+o.k.m+'</b><br>'+o.k.d+(o.ix===S.sk.eq?' (ติดตั้ง)':''):'???')+'</span></div>';
   });
   $('kcol').innerHTML=h;$('kc').textContent='('+own+'/'+SKL.length+')';
 }
 function sPull(n){
-  if(S.gp<n*10){$('km').textContent='GP ไม่พอ ไปฟันมอนเพิ่มก่อน';return}
-  S.gp-=n*10;$('km').textContent='';
-  var out=[],best='n',ord={n:0,r:1,l:2,d:3,u:4,x:5};
+  if(S.gp<n*300){$('km').textContent='GP ไม่พอ ไปฟันมอนเพิ่มก่อน';return}
+  S.gp-=n*300;$('km').textContent='';
+  var out=[],best='n',ord={n:0,r:1,l:2,d:3,u:4,x:5,e:6};
   for(var q=0;q<n;q++){
     var t=tierRoll(),pool=[];SKL.forEach(function(k,ix){if(k.t===t)pool.push(ix)});
     var ix=pool[(Math.random()*pool.length)|0];out.push(ix);
@@ -530,8 +599,8 @@ function gpUI(){
   $('gp').textContent=S.gp;$('pt').textContent='ยาโชค '+S.pot+' ขวด';$('pd').disabled=!(S.pot>0);
   $('lk').textContent=S.luck>0?'โชค x2 อีก '+S.luck+' ครั้ง':'';
   var f=$('pgf'),t=$('stg');
-  if(boss){var pc=Math.max(0,boss.hp/boss.max*100);t.textContent='ด่าน '+S.stage+(S.stage>=50?' (บอสสุดท้าย)':'')+' · บอส '+Math.max(0,boss.hp)+'/'+boss.max;f.style.width=pc+'%';f.style.background='#ff5d5d';$('hpf').style.width=pc+'%'}
-  else{t.textContent='ด่าน '+S.stage+(S.cleared?' (ผ่านครบแล้ว)':'')+' · ฆ่ามอน '+Math.min(S.prog,10)+'/10';f.style.width=Math.min(S.prog,10)*10+'%';f.style.background='#5fd35f'}
+  if(boss){var pc=Math.max(0,boss.hp/boss.max*100);t.textContent='ด่าน '+S.stage+(S.stage>=100?' (บอสสุดท้าย)':'')+' · บอส '+Math.max(0,boss.hp)+'/'+boss.max;f.style.width=pc+'%';f.style.background='#ff5d5d';$('hpf').style.width=pc+'%'}
+  else{t.textContent='ด่าน '+S.stage+(S.cleared100?' (ผ่านครบแล้ว)':'')+' · ฆ่ามอน '+Math.min(S.prog,10)+'/10';f.style.width=Math.min(S.prog,10)*10+'%';f.style.background='#5fd35f'}
   shopUI();
 }
 function eqUI(){
@@ -543,7 +612,9 @@ function eqUI(){
   b.disabled=lv>=5||own-1<need;
 }
 function spawn(i){
-  var el=$('m'+i);el.innerHTML=MON;el.firstChild.style.filter='hue-rotate('+((Math.random()*360)|0)+'deg)';
+  var el=$('m'+i);el.innerHTML='<div class="hp mhp"><i></i></div>'+(S.stage>50?MON2:MON);
+  el.querySelector('svg').style.filter='hue-rotate('+((Math.random()*360)|0)+'deg)';
+  mhm[i]=mh[i]=mhp();if(mhm[i]<2)el.querySelector('.mhp').style.display='none';else el.querySelector('.mhp i').style.width='100%';
   el.className='mon';void el.offsetWidth;el.dataset.alive='1';
 }
 function add(cls,x,y,v){
@@ -557,6 +628,7 @@ function fxs(t,x,y){
   var sk0=skinOf(S.eq||0),c=sk0?sk0.c:COL[t];
   if(t==='r'){add('sl',x,y,{'--rot':'-35deg','--sc':c});burst(x,y,7,c,50)}
   else if(t==='l'){add('sl',x,y,{'--rot':'-40deg','--sc':c});add('sl',x,y,{'--rot':'40deg','--sc':'#ff6a00'});add('rg',x,y,{'--sc':c});burst(x,y,14,c,80);rst(ar,'shk')}
+  else if(t==='e'){[-80,-55,-30,0,30,55,80].forEach(function(r){add('sl',x,y,{'--rot':r+'deg','--sc':c})});add('pl',x-50,0,{'--sc':c});add('pl',x,0,{'--sc':'#fff'});add('pl',x+50,0,{'--sc':c});add('rg',x,y,{'--sc':c});add('rg',x,y,{'--sc':'#fff'});add('afl e',0,0,{});burst(x,y,60,c,160);rst(ar,'shk')}
   else if(t==='x'){[-75,-45,-15,15,45,75].forEach(function(r){add('sl',x,y,{'--rot':r+'deg','--sc':c})});add('pl',x,0,{'--sc':c});add('rg',x,y,{'--sc':c});add('rg',x,y,{'--sc':'#b57dff'});add('afl x',0,0,{});burst(x,y,44,c,140);rst(ar,'shk')}
   else if(t==='u'){[-80,-40,0,40,80].forEach(function(r){add('sl d',x,y,{'--rot':r+'deg','--sc':c})});add('pl',x-40,0,{'--sc':c});add('pl',x+40,0,{'--sc':c});add('rg',x,y,{'--sc':c});add('rg',x,y,{'--sc':'#fff'});add('afl',0,0,{});burst(x,y,36,c,130);rst(ar,'shk')}
   else{[-55,0,55].forEach(function(r){add('sl d',x,y,{'--rot':r+'deg','--sc':c})});add('pl',x,0,{'--sc':c});add('rg',x,y,{'--sc':c});add('afl',0,0,{});burst(x,y,24,c,110);rst(ar,'shk')}
@@ -568,7 +640,7 @@ function oldHit(i){
   kn.style.setProperty('--ang',((x-a.width/2)/a.width*60)+'deg');rst(kn,'sw');
   fxs(it.t,x,y);
   el.classList.add('dead');
-  var g=({n:2,r:4,l:8,d:16,u:32,x:64})[it.t];S.gp+=g;add('gain',x-14,y-24,{}).textContent='+'+g+' GP';
+  var g=({n:2,r:4,l:8,d:16,u:32,x:64,e:128})[it.t];S.gp+=g;add('gain',x-14,y-24,{}).textContent='+'+g+' GP';
   if(Math.random()<0.02){S.pot++;var pe=add('gain',x-30,y-50,{});pe.textContent='ได้ยาโชค!';pe.style.color='#7dffb0'}
   save();gpUI();
   setTimeout(function(){spawn(i)},800);
@@ -578,32 +650,37 @@ $('col').addEventListener('click',function(e){var c=e.target.closest('.card');if
 function redeem(){
   var inp=$('cd'),v=inp.value.trim().toLowerCase(),m=$('cm');
   if(!v){m.textContent='';return}
-  if(v==='pphodmak'){S.gp+=1000;save();gpUI();m.textContent='ใช้โค้ดสำเร็จ! ได้ 1000 GP';m.style.color='#2fb26b';inp.value=''}
-  else if(v==='ultra'){
-    var ux=I.findIndex(function(k){return k.t==='u'});
-    S.own[ux]=(S.own[ux]||0)+1;S.eq=ux;save();render();
-    m.textContent='เสกมีดอัลตราแรร์ให้แล้ว ถืออยู่ ไปลองฟันมอนได้เลย';m.style.color='#2fb26b';inp.value='';
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
-  else if(v==='admin'){
+  if(v==='admin89'){
     I.forEach(function(k,ix){S.own[ix]=(S.own[ix]||0)+1});
     SKL.forEach(function(k,ix){S.sk.own[ix]=(S.sk.own[ix]||0)+1});
     Object.keys(SKN).forEach(function(id){S.ks.own[id]=1});
-    PET.forEach(function(k,ix){S.pt.own[ix]=(S.pt.own[ix]||0)+1});if(S.pt.eq==null)S.pt.eq=0;
-    if(S.sk.eq==null)S.sk.eq=0;
+    PET.forEach(function(k,ix){S.pt.own[ix]=(S.pt.own[ix]||0)+1});
+    if(S.sk.eq==null)S.sk.eq=0;if(S.pt.eq==null)S.pt.eq=0;
     S.pot++;save();render();inp.value='';
-    m.textContent='แอดมิน: เสกมีดทุกเล่ม ทักษะทุกอัน สกินทุกแบบ สัตว์เลี้ยงทุกตัว และยาโชคอย่างละ 1 เข้าคลังแล้ว';m.style.color='#2fb26b';
+    m.textContent='แอดมิน: เสกมีด ทักษะ สกิน สัตว์เลี้ยงทุกอย่าง และยาโชคอย่างละ 1 แล้ว';m.style.color='#2fb26b';
   }
-  else if(v==='ultrapull'){S.gp+=10;forceU=true;inp.value='';m.textContent='';pull(1)}
   else{m.textContent='โค้ดไม่ถูกต้อง';m.style.color='#d9534f'}
 }
 $('cb').onclick=redeem;
 var BOSS=MON.replace('</svg>','<path d="M20 12 L24 0 L32 9 L40 0 L44 12 Z" fill="#ffd54a"/></svg>');
+var BFACE='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';
+var MON2='<svg viewBox="0 0 64 56"><path d="M10 50 Q6 22 32 10 Q58 22 54 50 Z" fill="#8a2be2" stroke="#4b1380" stroke-width="2"/><path d="M14 18 L10 4 L24 12 Z M50 18 L54 4 L40 12 Z" fill="#ffcc33"/><circle cx="22" cy="32" r="4.5" fill="#ffe94a"/><circle cx="42" cy="32" r="4.5" fill="#ffe94a"/><circle cx="22" cy="33" r="2" fill="#111"/><circle cx="42" cy="33" r="2" fill="#111"/><path d="M14 24 L28 30 M50 24 L36 30" stroke="#2a0a4a" stroke-width="3"/><path d="M22 43 Q32 39 42 43" stroke="#2a0a4a" stroke-width="2" fill="none"/><path d="M26 42 L28 47 L30 42 M34 42 L36 47 L38 42" fill="#fff"/></svg>';
+var BOSS2=MON2.replace('</svg>','<path d="M20 12 L24 0 L32 9 L40 0 L44 12 Z" fill="#ffd54a"/></svg>');
+var mh=[0,0,0,0,0],mhm=[1,1,1,1,1];
+function mhp(){return 1+Math.floor((S.stage-1)/3)}
+function mhUI(i){var b=$('m'+i).querySelector('.mhp i');if(b)b.style.width=Math.max(0,mh[i]/mhm[i]*100)+'%'}
+function mdmg(it){var lv=S.lv[S.eq||0]||0;return Math.max(1,Math.round(({n:1,r:2,l:4,d:8,u:16,x:32,e:64})[it.t]*(1+.15*lv)))}
+function strike(i,it,cm){
+  var d=Math.max(1,Math.round(mdmg(it)*(cm||1)));mh[i]-=d;
+  if(mh[i]<=0){kill(i,it,1);return}
+  var el=$('m'+i),p=pos(el);rst(el,'hurt');mhUI(i);
+  var e=add('gain',p.x-8,p.y-30,{});e.textContent='-'+d;e.style.color='#ff8a8a';
+}
 function pos(el){var a=ar.getBoundingClientRect(),r=el.getBoundingClientRect();return{x:r.left-a.left+r.width/2,y:r.top-a.top+r.height/2,w:a.width}}
 function alive(){var o=[];for(var i=0;i<S.shop.mons;i++)if($('m'+i).dataset.alive==='1')o.push(i);return o}
 function kill(i,it,mult){
   var el=$('m'+i),p=pos(el),lv=S.lv[S.eq||0]||0;el.dataset.alive='0';el.classList.add('dead');
-  var g=Math.round(({n:2,r:4,l:8,d:16,u:32,x:64})[it.t]*(1+.15*lv)*(1+((skl().gp||0)+pb('gp'))/100)*(mult||1));
+  var g=Math.round(({n:2,r:4,l:8,d:16,u:32,x:64,e:128})[it.t]*(1+.15*lv)*(1+((skl().gp||0)+pb('gp'))/100)*(1+(S.stage-1)*.05)*(mult||1));
   S.gp+=g;S.kills++;S.prog++;
   add('gain',p.x-14,p.y-24,{}).textContent='+'+g+' GP';
   if(Math.random()<Math.max(.02,skl().pot||0)+pb('pot')){S.pot++;var pe=add('gain',p.x-30,p.y-50,{});pe.textContent='ได้ยาโชค!';pe.style.color='#7dffb0'}
@@ -613,24 +690,26 @@ function swing(p){kn.style.setProperty('--ang',((p.x-p.w/2)/p.w*60)+'deg');rst(k
 function hit(i){
   var el=$('m'+i);if(boss||el.dataset.alive!=='1')return;
   var it=I[S.eq||0],k=skl(),crit=k.crit&&Math.random()<k.crit[0],p=pos(el);
-  swing(p);fxs(it.t,p.x,p.y);kill(i,it,crit?k.crit[1]:1);
+  swing(p);fxs(it.t,p.x,p.y);strike(i,it,crit?k.crit[1]:1);
   if(crit)add('gain',p.x-24,p.y-46,{}).textContent='คริติคอล x'+k.crit[1]+'!';
   var o=alive(),ex=k.all?o.length:Math.min(k.cleave||0,o.length);
   o.sort(function(){return Math.random()-.5});
-  o.slice(0,ex).forEach(function(j){var q=pos($('m'+j));fxs(it.t,q.x,q.y);kill(j,it)});
+  o.slice(0,ex).forEach(function(j){var q=pos($('m'+j));fxs(it.t,q.x,q.y);strike(j,it)});
   save();gpUI();chk();
 }
 function chk(){if(!boss&&S.prog>=10)startBoss()}
 function startBoss(){
-  var hp=30+(S.stage-1)*20;boss={hp:hp,max:hp};
+  var hp=S.stage<=50?30+(S.stage-1)*20:1010+(S.stage-50)*60;boss={hp:hp,max:hp};
   for(var i=0;i<5;i++){var e=$('m'+i);if(e.dataset.alive==='1'){e.dataset.alive='0';e.classList.add('dead')}}
-  $('bsv').innerHTML=BOSS;$('bsv').firstChild.style.filter='hue-rotate('+((S.stage*53)%360)+'deg)';
+  var st=S.stage;
+  $('bsv').innerHTML=st===100?'<div class="bname">บังพี</div><img class="bface" alt="บังพี" src="data:image/jpeg;base64,'+BFACE+'">':(st>50?BOSS2:BOSS);
+  var sv=$('bsv').querySelector('svg');if(sv)sv.style.filter='hue-rotate('+((st*53)%360)+'deg)';
   $('bs').className='boss';gpUI();
 }
 function hitBoss(){
   if(!boss)return;
   var ix=S.eq||0,it=I[ix],lv=S.lv[ix]||0,b=$('bs'),p=pos(b);
-  var k=skl(),d=Math.round(({n:1,r:2,l:4,d:8,u:16,x:32})[it.t]*(1+.15*lv)*(1+((k.bd||0)+pb('bd'))/100)),crit=k.crit&&Math.random()<k.crit[0];
+  var k=skl(),d=Math.round(({n:1,r:2,l:4,d:8,u:16,x:32,e:64})[it.t]*(1+.15*lv)*(1+((k.bd||0)+pb('bd'))/100)),crit=k.crit&&Math.random()<k.crit[0];
   if(crit)d*=k.crit[1];
   swing(p);rst(b,'hurt');fxs(it.t,p.x,p.y);
   var e=add('gain',p.x-10+Math.random()*30,p.y-20,{});e.textContent='-'+d+(crit?'!':'');e.style.color='#ff8a8a';
@@ -641,10 +720,12 @@ function bossDown(p){
   var rew=100*S.stage;S.gp+=rew;
   add('gain',p.x-50,p.y,{}).textContent='ชนะบอส! +'+rew+' GP';
   if(Math.random()<.5){S.pot++;var e=add('gain',p.x-30,p.y+24,{});e.textContent='ได้ยาโชค!';e.style.color='#7dffb0'}
-  if(S.stage>=50){S.cleared=true;add('gain',p.x-80,p.y-30,{}).textContent='ผ่านครบ 50 ด่าน! ยินดีด้วย!'}else S.stage++;
+  if(S.stage===50){S.cleared=true;add('gain',p.x-80,p.y-50,{}).textContent='ผ่านด่าน 50! ปลดล็อกสกินผู้พิชิต'}
+  if(S.stage>=100){S.cleared100=true;add('gain',p.x-80,p.y-30,{}).textContent='ผ่านครบ 100 ด่าน! ยินดีด้วย!'}else S.stage++;
   S.prog=0;boss=null;$('bs').className='boss off';
   for(var i=0;i<S.shop.mons;i++)spawn(i);
   save();gpUI();
+  if(window.__lbSubmit)window.__lbSubmit();
 }
 function rsArena(){
   boss=null;$('bs').className='boss off';
@@ -668,8 +749,90 @@ $('up').onclick=function(){var ix=S.eq||0,lv=S.lv[ix]||0,need=lv+1;if(lv<5&&(S.o
 $('pd').onclick=function(){if(S.pot>0){S.pot--;S.luck+=10+5*S.shop.dur;save();render()}};
 $('cd').addEventListener('keydown',function(e){if(e.key==='Enter')redeem()});
 rsArena();autoSet();
+window.__game={get:function(){return{stage:S.stage,kills:S.kills}}};
 render();
 })();
+</script>
+<script>
+(function(){
+  var o=document.getElementById('nm'),i=document.getElementById('nmi'),b=document.getElementById('nmb'),m=document.getElementById('nmm'),n='';
+  try{n=localStorage.getItem('knife-gacha-name')||''}catch(e){}
+  if(n){o.hidden=true;return}
+  function go(){
+    var v=i.value.trim().slice(0,16);
+    if(!v){m.textContent='ต้องใส่ชื่อก่อนถึงจะเริ่มเล่นได้';return}
+    try{localStorage.setItem('knife-gacha-name',v)}catch(e){}
+    var l=document.getElementById('lbn');if(l)l.value=v;
+    o.hidden=true;if(window.__lbSubmit)window.__lbSubmit();
+  }
+  b.onclick=go;i.addEventListener('keydown',function(e){if(e.key==='Enter')go()});
+  try{i.focus()}catch(e){}
+})();
+</script>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getFirestore,doc,setDoc,collection,query,orderBy,limit,getDocs,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const app=initializeApp({
+  apiKey:"AIzaSyC-z7-LrFHD5c_Lm6C4bvyquw_HyXqz2d8",
+  authDomain:"knife-gacha.firebaseapp.com",
+  projectId:"knife-gacha",
+  storageBucket:"knife-gacha.firebasestorage.app",
+  messagingSenderId:"753978192993",
+  appId:"1:753978192993:web:788c163de612e7496e2620"
+});
+const db=getFirestore(app);
+const $=id=>document.getElementById(id);
+const rnd=()=>String(Date.now())+Math.random().toString(36).slice(2,10);
+let uid;
+try{uid=localStorage.getItem('knife-gacha-uid');if(!uid){uid=(self.crypto&&crypto.randomUUID)?crypto.randomUUID():rnd();localStorage.setItem('knife-gacha-uid',uid)}}catch(e){uid=rnd()}
+try{$('lbn').value=localStorage.getItem('knife-gacha-name')||''}catch(e){}
+let last=0;
+const mk=(tag,cls,txt)=>{const e=document.createElement(tag);e.className=cls;if(txt!==undefined)e.textContent=txt;return e};
+function paint(list){
+  const box=$('lbt');box.textContent='';
+  if(!list.length){box.textContent='ยังไม่มีใครส่งคะแนน เป็นคนแรกเลย!';return}
+  const med=['🥇','🥈','🥉'],cl=['#ffcc33','#c3ccd6','#cd7f32'];
+  const pod=mk('div','podium');
+  [1,0,2].forEach(i=>{
+    const v=list[i];if(!v)return;
+    const c=mk('div','pd p'+(i+1)+(v.id===uid?' me':''));c.style.setProperty('--pc',cl[i]);
+    c.append(mk('div','md',med[i]),mk('div','pn',v.name+(v.id===uid?' (คุณ)':'')),mk('div','ps','ด่าน '+v.stage),mk('div','pk','ฆ่า '+Number(v.kills).toLocaleString()));
+    pod.append(c);
+  });
+  box.append(pod);
+  list.slice(3).forEach((v,j)=>{
+    const r=mk('div','lbr'+(v.id===uid?' me':''));
+    const bar=mk('div','bar');bar.style.width=Math.min(100,v.stage)+'%';
+    const info=mk('div','');info.style.textAlign='right';
+    info.append(mk('div','st','ด่าน '+v.stage),mk('div','kl','ฆ่า '+Number(v.kills).toLocaleString()));
+    r.append(mk('div','rk',String(j+4)),mk('div','nm',v.name+(v.id===uid?' (คุณ)':'')),info,bar);
+    box.append(r);
+  });
+}
+async function load(){
+  const box=$('lbt');
+  try{
+    const snap=await getDocs(query(collection(db,'players'),orderBy('score','desc'),limit(10)));
+    const list=[];snap.forEach(d=>list.push(Object.assign({id:d.id},d.data())));
+    paint(list);
+  }catch(e){box.textContent='โหลดอันดับไม่ได้ตอนนี้ ลองรีเฟรชอีกครั้ง'}
+}
+async function submit(manual){
+  const g=window.__game&&window.__game.get();if(!g)return;
+  const n=$('lbn').value.trim().slice(0,16);
+  if(!n){if(manual)$('lbm').textContent='ใส่ชื่อก่อนนะ';return}
+  try{localStorage.setItem('knife-gacha-name',n)}catch(e){}
+  const stage=Math.max(1,Math.min(100,g.stage|0)),kills=Math.max(0,Math.min(999999,g.kills|0));
+  try{
+    await setDoc(doc(db,'players',uid),{name:n,stage,kills,score:stage*1000000+kills,updated:serverTimestamp()});
+    if(manual)$('lbm').textContent='ส่งคะแนนแล้ว';
+    await load();
+  }catch(e){if(manual)$('lbm').textContent='ส่งไม่สำเร็จ (คะแนนต้องไม่ต่ำกว่าที่เคยส่ง) หรือลองใหม่อีกครั้ง'}
+}
+window.__lbSubmit=()=>{const t=Date.now();if(t-last<5000)return;last=t;submit(false)};
+$('lbs').onclick=()=>submit(true);
+$('lbr').onclick=load;
+load();
 </script>
 </body>
 </html>
